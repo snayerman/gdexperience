@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/autoprefixer": "^6.7.3",
     "@ux/uxcore2": "^8.5.1",
     "@ux/webpack-config": "^8.4.1",
     "autoprefixer": "7.1.6",

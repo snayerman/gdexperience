@@ -1,14 +1,15 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './Reducers/RootReducer';
-import logger from '../../../Library/Caches/typescript/2.9/node_modules/@types/redux-logger';
+import RootReducer from './Reducers/RootReducer';
+import logger from 'redux-logger';
 
 let state = {
+   blah: "ASDF"
 };
 
 export default function configureStore(initialState = state) {
    return createStore(
-      rootReducer,
+      RootReducer,
       applyMiddleware(thunk, logger)
    );
 }
