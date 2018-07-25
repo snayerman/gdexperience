@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ButtonToolbar, Button, FormGroup, InputGroup, FormControl, Glyphicon } from 'react-bootstrap';
 import Axios from 'axios';
+import LaunchPage from '../../LaunchPage';
 
 import './ModalScreen.scss';
 const wellStyles = { maxWidth: 450, margin: '0 auto ', color:'white'};
@@ -23,7 +24,7 @@ export default class AssistModal extends Component {
                style={{height:'15vh'}}
             >
             </img>
-            <h4 style={{marginRight:'20px', marginLeft:'20px', marginBottom:'20px', color:'white'}}>What goals do you have with GoDaddy?</h4>
+            <h4 style={{marginRight:'20px', marginLeft:'20px', marginBottom:'20px', color:'white'}}>What goals do you have <b>with</b> GoDaddy?</h4>
             <FormGroup controlId="formControlsTextarea" style={{marginRight:'40px', marginLeft:'40px', marginBottom:'20px'}}>
                <InputGroup id="queryInput">
                   <FormControl componentClass="textarea" style={{height:'10vh'}} type="text" placeholder="Try: I need to start an online presence for my business" onSubmit={() => console.log("SUBMIT")}/>
@@ -121,7 +122,9 @@ export default class AssistModal extends Component {
          )
       } else {
          return(
-            <div>THIS IS YENGS COMPONENT HERE</div>
+            <div>
+            <LaunchPage/>
+            </div>
          )
       }
 
