@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ButtonToolbar, Button, FormGroup, InputGroup, FormControl, Glyphicon } from 'react-bootstrap';
 import Axios from 'axios';
-import AssistModal from './AssistModal';
+import AssistModal from '../../Containers/AssistModalContainer';
 import './ModalScreen.scss';
 const wellStyles = { maxWidth: 450, margin: '0 auto ', color:'white'};
 
@@ -79,34 +79,34 @@ export default class ModalScreen extends Component {
    renderDomain() {
       return (
          <div style={{backgroundColor:'#49a34c', textAlign:'center'}}>
-         <div className="innerModal">
-         <img
-               src="./assets/GD_HEAD_RGB_FC.svg"
-               type="image/svg+xml"
-               style={{height:'15vh'}}
-            >
-            </img>
-            <h4 style={{marginRight:'20px', marginLeft:'20px', marginBottom:'20px', color:'white'}}>GoBuddy is here to help you!<br/><br/> Type what you need and we'll send you in the right direction.</h4>
-            <FormGroup style={{marginRight:'40px', marginLeft:'40px', marginBottom:'20px'}}>
-               <InputGroup id="queryInput">
-                  <FormControl type="text" placeholder="" onSubmit={() => console.log("SUBMIT")}/>
-                  <InputGroup.Addon className="glyphbtn">
-                  {/* <Glyphicon glyph="music" /> */}
-                     <Button bsStyle="primary" bsSize="xsmall" style={{color:'black', backgroundColor:'white'}}>
-                        <Glyphicon glyph="chevron-right" ></Glyphicon>
-                     </Button>
-                  </InputGroup.Addon>
-               </InputGroup>
-            </FormGroup>
-            <h4 style={{marginRight:'20px', marginLeft:'20px', marginBottom:'20px', color:'white'}}>Check out our comprehensive guide for renewing your domain!</h4>
-            {/* <ButtonToolbar style={{marginTop:'10px',height:'15vh', align:'center', color:'white'}}> */}
-            <a target="_blank" href="https://www.godaddy.com/help/renew-my-domain-19070">
-               <Button style={{height:'8vh', color:'white', backgroundColor:'#2f61a2', align:'center'}}bsStyle="primary">
-               Domain Renewal Guide
-               </Button>
-            </a>
-               {/* </ButtonToolbar> */}
-         </div>
+            <div className="innerModal">
+               <img
+                  src="./assets/GD_HEAD_RGB_FC.svg"
+                  type="image/svg+xml"
+                  style={{height:'15vh'}}
+               >
+               </img>
+               <h4 style={{marginRight:'20px', marginLeft:'20px', marginBottom:'20px', color:'white'}}>GoBuddy is here to help you!<br/><br/> Type what you need and we'll send you in the right direction.</h4>
+               <FormGroup style={{marginRight:'40px', marginLeft:'40px', marginBottom:'20px'}}>
+                  <InputGroup id="queryInput">
+                     <FormControl type="text" placeholder="" onSubmit={() => console.log("SUBMIT")}/>
+                     <InputGroup.Addon className="glyphbtn">
+                     {/* <Glyphicon glyph="music" /> */}
+                        <Button bsStyle="primary" bsSize="xsmall" style={{color:'black', backgroundColor:'white'}}>
+                           <Glyphicon glyph="chevron-right" ></Glyphicon>
+                        </Button>
+                     </InputGroup.Addon>
+                  </InputGroup>
+               </FormGroup>
+               <h4 style={{marginRight:'20px', marginLeft:'20px', marginBottom:'20px', color:'white'}}>Check out our comprehensive guide for renewing your domain!</h4>
+               {/* <ButtonToolbar style={{marginTop:'10px',height:'15vh', align:'center', color:'white'}}> */}
+               <a target="_blank" href="https://www.godaddy.com/help/renew-my-domain-19070">
+                  <Button style={{height:'8vh', color:'white', backgroundColor:'#2f61a2', align:'center'}}bsStyle="primary">
+                  Domain Renewal Guide
+                  </Button>
+               </a>
+                  {/* </ButtonToolbar> */}
+            </div>
          </div>
       );
    }
@@ -118,16 +118,17 @@ export default class ModalScreen extends Component {
    }
 
    render() {
+      console.log("PROPS", this.props.type);
       if(this.state.onDomain) {
          return (
-            <div className="modalContainer">
+            <div className = {this.props.type === "LAUNCH" ? "modalContainerLg" : "modalContainer"}>
                {this.renderDomain()}            
             </div>
          );
       } else {
          return (
-            <div className="modalContainer">
-               {this.props.type == "NEW" ? this.renderNew() : this.renderSplash()}            
+            <div className = {this.props.type === "LAUNCH" ? "modalContainerLg" : "modalContainer"}>
+               {this.props.type == "SPLASH" ? this.renderSplash() : this.renderNew()}            
             </div>
          );
       }
