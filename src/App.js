@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import GoBuddy from './Components/GoBuddy/GoBuddy';
+import GoBuddy from './Containers/GoBuddyContainer';
 
 export default class App extends Component {
   render() {

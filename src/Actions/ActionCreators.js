@@ -4,3 +4,9 @@ export const simpleAction = () => dispatch => {
       data: 'test success!'
    })
 }
+
+export const selectModal = (type) => dispatch => {
+   dispatch({
+      type: type
+   })
+}

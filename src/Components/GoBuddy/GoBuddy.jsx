@@ -29,16 +29,16 @@ export default class GoBuddy extends Component {
    }
 
    renderModal() {
-      console.log("Modal Open: ", this.state.modalOpen);
+      let modal = this.props
       return (
          <Modal classNames={{ modal: 'modalContainer' }} open={this.state.modalOpen} onClose={this.closeModal.bind(this)} center>
-            <ModalScreen />
+            <ModalScreen onClick={this.props.selectModal.bind(this)} type={this.props.modal}/>
          </Modal>
       );
    }
 
    render() {
-      console.log("State: ", this.state);
+      console.log("State: ", this.props);
       return (
          <div className="gobuddy">
             <img
