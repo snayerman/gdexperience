@@ -1,0 +1,44 @@
+.modalContainer {
+
+   .innerModal {
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+
+      p {
+         font-style: italic;
+         text-align: center;
+         margin-bottom: 0 !important;
+      }
+
+      hr {
+         border: 1px solid #000;
+         margin-bottom: 5px;
+         margin-top: 5px;
+         width: 100%;
+         opacity: 0.2;
+      }
+
+      .glyphbtn {
+         padding-bottom: 0;
+         padding-top: 0;
+      }
+
+      #queryInput {
+         margin-top: 10px;
+      }
+
+      .btnContainer {
+         display: flex;
+         flex-direction: row;
+
+         .gdbutton {
+            margin-top: 5px;
+         }
+      }
+   }
+   
+   h3 {
+      word-wrap: break-word;
+   }
+}
